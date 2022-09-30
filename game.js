@@ -8,7 +8,8 @@ settingStart();
 
 function settingStart(){
     $(document).keydown(pressToStart);
-    $("body").click(pressToStart);
+    $("body").on('click touchstart',pressToStart);
+    // $("body").click(pressToStart);
 }
 
 function pressToStart(evt){
@@ -24,7 +25,7 @@ function gameStart(){
         $("body").off();
 
         // Add Button Event Listener
-        $(".btn").click(function(evt){
+        $(".btn").on('click touchstart',function(evt){
             checkSequence(this.id);  
         });
     }
