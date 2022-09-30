@@ -8,11 +8,15 @@ settingStart();
 
 function settingStart(){
     $(document).keydown(pressToStart);
-    $("body").on('click touchstart',pressToStart);
-    // $("body").click(pressToStart);
+    $("body").on("touchStart", function(evt) {
+        evt.preventDefault();
+        pressToStart(evt);
+    });
+    $("body").click(pressToStart);
 }
 
 function pressToStart(evt){
+    evt.preventDefault();
     gameStart();
 }
 
@@ -25,7 +29,11 @@ function gameStart(){
         $("body").off();
 
         // Add Button Event Listener
-        $(".btn").on('click touchstart',function(evt){
+        $(".btn").on("touchStart", function(evt) {
+            evt.preventDefault();
+            checkSequence(this.id);  
+        });
+        $(".btn").click(function(evt){
             checkSequence(this.id);  
         });
     }
@@ -42,7 +50,6 @@ function nextSequence(){
 function checkSequence(name){
     var buttonNumber = buttonColor.indexOf(name);
     userChosenPattern.push(buttonNumber);
-    console.log(userChosenPattern.length);
 
     pressAnimation("#" + name, "pressed");
     playSound(name);
