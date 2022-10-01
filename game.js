@@ -80,8 +80,11 @@ function pressAnimation(name, styleClassName){
 }
 
 function buttonAnimation(number){
-    $("#"+buttonColor[number]).fadeOut(100).fadeIn(100);
+    $("#"+buttonColor[number]).addClass("btn-show");
     playSound(buttonColor[number]);
+    setTimeout(function(){        
+        $("#"+buttonColor[number]).removeClass("btn-show");
+    },200);
 }
 
 function playSound(name){

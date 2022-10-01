@@ -52,9 +52,18 @@ body {
   background-color: yellow;
 }
 
+.btn-show{
+  animation: fade-in-out 0.2s linear forwards;
+}
+
 .pressed {
   box-shadow: 0 0 20px white;
   background-color: grey;
+}
+
+@keyframes fade-in-out {
+  0%,100% { opacity: 0; }
+  50% { opacity: 1; }
 }
 
 /* @media (max-width: 991px) {
