@@ -2,7 +2,9 @@ const buttonColor = ["green","red","yellow","blue"];
 
 var userChosenPattern = [];
 var gamePattern = [];
+let sounds;
 let timeoutID; 
+
 
 settingStart();
 
@@ -83,7 +85,9 @@ function buttonAnimation(number){
 }
 
 function playSound(name){
-    var sounds = new Audio();
+    if(!sounds){
+        sounds = new Audio();
+    }
     sounds.src = "sounds/" + name + ".mp3";
     sounds.play();
 }
