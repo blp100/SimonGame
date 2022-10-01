@@ -54,8 +54,8 @@ function checkSequence(name){
     userChosenPattern.push(buttonNumber);
 
     pressAnimation("#" + name, "pressed");
-    playSound(name);
     if (buttonNumber === gamePattern[userChosenPattern.length - 1] ){
+        playSound(name);
         if(userChosenPattern.length === gamePattern.length){
             timeoutID = setTimeout(function(){        
                 nextSequence();
@@ -88,8 +88,10 @@ function buttonAnimation(number){
 }
 
 function playSound(name){
-    if(!sounds){
-        sounds = new Audio();
+    if (sounds === undefined){
+        sounds = new Audio();    
+    }else{
+        sounds.pause();
     }
     sounds.src = "sounds/" + name + ".mp3";
     sounds.play();
