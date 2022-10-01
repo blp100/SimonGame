@@ -33,8 +33,7 @@ body {
 }
 
 .game-over-title{
-  opacity: 0;
-  transition: opacity 2s steps(6, end);
+  animation: fade-in 1.5s steps(6, end);
 }
 
 .red {
@@ -54,18 +53,23 @@ body {
 }
 
 .btn-show{
-  animation: fade-in-out 0.2s linear forwards;
+  animation: fade-in-out 2s linear forwards;
 }
 
 .pressed {
   box-shadow: 0 0 20px white;
   background-color: grey;
-  animation: fade-in-out 0.2s linear forwards;
+  transition: all 0.2s jump-end;
 }
 
 @keyframes fade-in-out {
   0%,100% { opacity: 0; }
   50% { opacity: 1; }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 /* @media (max-width: 991px) {
