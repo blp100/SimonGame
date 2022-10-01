@@ -76,7 +76,7 @@ function pressAnimation(name, styleClassName){
     $(name).addClass(styleClassName);
     setTimeout(function(){        
         $(name).removeClass(styleClassName);
-    },100);
+    },200);
 }
 
 function buttonAnimation(number){
